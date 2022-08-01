@@ -5,7 +5,8 @@ const auth = {
     password: process.env.SWpassword // API token
   };
   const apiurl = process.env.url;
-  const ROOMNAME = "testing";
+  const ROOMNAME = "TestRoom";
+  
   
   // Basic express boilerplate
   const express = require("express");
@@ -63,10 +64,11 @@ const auth = {
           user_name:user_name,
           room_name: ROOMNAME,
           join_video_muted:true,
+          join_audio_muted:true
         },
         { auth }
       );
-      console.log(token.data.token);
+      //console.log(token.data.token);
       return res.json({ token: token.data.token });
     } catch (e) {
       console.log(e);
